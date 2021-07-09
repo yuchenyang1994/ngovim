@@ -54,14 +54,22 @@ local opts = {
 }
 
 local mappings = {
+  ["<Space>"] = {"<cmd>Telescope commands<CR>", "Commands"},
 	f = {
 		name = "File",
 		s = {"<cmd>w!<CR>", "Save"},
 		f = {"<cmd>Telescope find_files<CR>", "Find Files"},
-    	r = {"<cmd>Telescope oldfiles<CR>", "Recent File"},
+    r = {"<cmd>Telescope oldfiles<CR>", "Recent File"},
 		t = {"<cmd>lua require'module.tree'.toggle_tree()<CR>", "Toggle Tree"},
 		n = {"<cmd>enew<cr>", "New File"},
 	},
+  s = {
+      name = "Search",
+      b = {"<cmd>Telescope current_buffer_fuzzy_find<CR>", "Search Current"},
+      p = {"<cmd>Telescope live_grep<CR>", "Search Project"},
+      r = {"<cmd>Telescope search_history<CR>", "Search History"},
+      m = {"<cmd>Telescope marks<CR>", "Search Marks"},
+  },
 	w = {
 		name = "Window",
 		s = {"<cmd>split<CR>", "Split Window"},
@@ -79,8 +87,8 @@ local mappings = {
 	b = {
 		name = "Buffer",
 		b = { "<cmd>Telescope buffers show_all_buffers=true<cr>", "Switch Buffer" },
-		n = {"<cmd>bnect<cr>", "Next buffer"},
-		p = {"<cmd>bnect<cr>", "Previous Buffer"},
+		n = {"<cmd>bnext<cr>", "Next buffer"},
+		p = {"<cmd>bprevious<cr>", "Previous Buffer"},
 		d = { "<cmd>:bd<CR>", "Delete Buffer" },
 	},
 	c = {
@@ -97,7 +105,6 @@ local mappings = {
 		f = { "<cmd>tabfirst<CR>", "First" },
 		l = { "<cmd>tablast<CR>", "Last" },
 	},
-  ["<Space>"] = {"<cmd>Telescope commands<CR>", "Commands"},
 	q = {
 		name = "+quit/session",
 		q = { "<cmd>:qa<cr>", "Quit" },
