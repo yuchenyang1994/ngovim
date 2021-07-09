@@ -63,13 +63,17 @@ local mappings = {
 		t = {"<cmd>lua require'module.tree'.toggle_tree()<CR>", "Toggle Tree"},
 		n = {"<cmd>enew<cr>", "New File"},
 	},
-  s = {
-      name = "Search",
-      b = {"<cmd>Telescope current_buffer_fuzzy_find<CR>", "Search Current"},
-      p = {"<cmd>Telescope live_grep<CR>", "Search Project"},
-      r = {"<cmd>Telescope search_history<CR>", "Search History"},
-      m = {"<cmd>Telescope marks<CR>", "Search Marks"},
-  },
+	s = {
+	    name = "Search",
+	    b = {"<cmd>Telescope current_buffer_fuzzy_find<CR>", "Search Current"},
+	    p = {"<cmd>Telescope live_grep<CR>", "Search Project"},
+	    r = {"<cmd>Telescope search_history<CR>", "Search History"},
+	    m = {"<cmd>Telescope marks<CR>", "Search Marks"},
+	},
+	p = {
+	    name = "Project",
+	    p = {"<cmd>lua require'telescope'.extensions.project.project{}<CR>", "Find Projects"},
+	},
 	w = {
 		name = "Window",
 		s = {"<cmd>split<CR>", "Split Window"},

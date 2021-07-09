@@ -20,9 +20,13 @@ M.config = function ()
       description = { "  Recently Used Files" },
       command = "Telescope oldfiles",
     },
-    c = {
-      description = { "  Find Word          " },
-      command = "Telescope live_grep",
+    c = { 
+      description = { "冷  Find Project      " },
+      command = "lua require'telescope'.extensions.project.project{}",
+    },
+    d = {
+      description = { "  Find Mark          " },
+      command = "Telescope marks",
     },
   }
 end

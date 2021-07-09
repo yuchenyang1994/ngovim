@@ -37,15 +37,18 @@ return require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     config = [[require('module.telescope')]],
   }
-	-- theme
+
+  use { "nvim-telescope/telescope-project.nvim" }
+  -- theme
   use { "christianchiarulli/nvcode-color-schemes.vim", opt = true }
   use { "nvim-treesitter/nvim-treesitter" }
  	use 'folke/tokyonight.nvim'
-  use({ "glepnir/dashboard-nvim",
+  use {"glepnir/dashboard-nvim",
    event="BufWinEnter",
    config = function ()
     require("module.dashboard").config()
-  end})
+  end}
+
   use {
     "p00f/nvim-ts-rainbow",
   }
@@ -65,7 +68,7 @@ return require("packer").startup(function(use)
   }
   use { "nvim-treesitter/nvim-treesitter-textobjects" }
   use { "RRethy/nvim-treesitter-textsubjects" }
-  use { "mfussenegger/nvim-ts-hint-textobject", event = "BufRead" }
+ use { "mfussenegger/nvim-ts-hint-textobject", event = "BufRead" }
   -- tree files
   use {
     "kyazdani42/nvim-tree.lua",

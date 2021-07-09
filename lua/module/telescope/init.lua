@@ -16,3 +16,5 @@ telescope.setup({
   },
   winblend = 10,
 })
+
+require 'telescope'.load_extension('project')
