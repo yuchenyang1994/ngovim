@@ -29,7 +29,7 @@ return require("packer").startup(function(use)
   -- lsp
   use { "neovim/nvim-lspconfig" }
   use { "kabouzeid/nvim-lspinstall", event = "VimEnter" }
-  -- telescope
+  -- Search
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
   use { "tjdevries/astronauta.nvim" }
@@ -39,7 +39,7 @@ return require("packer").startup(function(use)
   }
 
   use { "nvim-telescope/telescope-project.nvim" }
-  -- theme
+  -- UI
   use { "christianchiarulli/nvcode-color-schemes.vim", opt = true }
   use { "nvim-treesitter/nvim-treesitter" }
  	use 'folke/tokyonight.nvim'
@@ -48,7 +48,23 @@ return require("packer").startup(function(use)
    config = function ()
     require("module.dashboard").config()
   end}
-
+  -- UI/icon
+  use({
+    "kyazdani42/nvim-web-devicons",
+    module = "nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").setup({ default = true })
+    end,
+  })
+  -- UI/lualine
+  use({
+    "hoob3rt/lualine.nvim",
+    event = "VimEnter",
+    config = [[require('module.lualine')]],
+    wants = "nvim-web-devicons",
+  })
+  -- UI/rainbow
+  --
   use {
     "p00f/nvim-ts-rainbow",
   }
