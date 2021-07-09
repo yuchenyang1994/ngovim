@@ -21,7 +21,7 @@ M.config = function ()
       command = "Telescope oldfiles",
     },
     c = { 
-      description = { "冷  Find Project      " },
+      description = { "  Find Project       " },
       command = "lua require'telescope'.extensions.project.project{}",
     },
     d = {
