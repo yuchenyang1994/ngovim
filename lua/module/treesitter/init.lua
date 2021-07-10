@@ -6,12 +6,15 @@ end
 treesitter_configs.setup {
     ensure_installed = "all",
     ignore_install = { "haskell" },
-    highlight = { enabled = true },
+    highlight = { 
+        enable = true, 
+        use_languagetree = true,
+    },
     matchup = {
         enable = true,
     },
     highlight = {
-        enabled = true,
+        enable = true,
         additional_vim_regex_highlighting = true,
         disable = { "latex" },
     },

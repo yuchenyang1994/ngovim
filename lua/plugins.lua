@@ -44,11 +44,11 @@ return require("packer").startup(function(use)
   use { 
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
-      opt = true,
-      event = "BufRead",
-      config = [[require('module.treesitter')]]
+      config = [[require('module.treesitter')]],
+      requires = {
+        {"p00f/nvim-ts-rainbow"}
+      },
   }
-  use {"p00f/nvim-ts-rainbow", opt=true}
   use 'folke/tokyonight.nvim'
   use {"glepnir/dashboard-nvim",
    event="BufWinEnter",
@@ -87,9 +87,6 @@ return require("packer").startup(function(use)
   -- tree files
   use {
     "kyazdani42/nvim-tree.lua",
-    -- event = "BufEnter",
-    -- cmd = "NvimTreeToggle",
-    commit = "fd7f60e242205ea9efc9649101c81a07d5f458bb",
     config = function()
       require("module.tree").config()
     end,
