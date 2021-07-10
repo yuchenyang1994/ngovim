@@ -41,8 +41,15 @@ return require("packer").startup(function(use)
   use { "nvim-telescope/telescope-project.nvim" }
   -- UI
   use { "christianchiarulli/nvcode-color-schemes.vim", opt = true }
-  use { "nvim-treesitter/nvim-treesitter" }
- 	use 'folke/tokyonight.nvim'
+  use { 
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+      opt = true,
+      event = "BufRead",
+      config = [[require('module.treesitter')]]
+  }
+  use {"p00f/nvim-ts-rainbow", opt=true}
+  use 'folke/tokyonight.nvim'
   use {"glepnir/dashboard-nvim",
    event="BufWinEnter",
    config = function ()
@@ -63,11 +70,6 @@ return require("packer").startup(function(use)
     config = [[require('module.lualine')]],
     wants = "nvim-web-devicons",
   })
-  -- UI/rainbow
-  --
-  use {
-    "p00f/nvim-ts-rainbow",
-  }
   -- Autocomplete
   use {
     "hrsh7th/nvim-compe",
@@ -82,9 +84,6 @@ return require("packer").startup(function(use)
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
   }
-  use { "nvim-treesitter/nvim-treesitter-textobjects" }
-  use { "RRethy/nvim-treesitter-textsubjects" }
- use { "mfussenegger/nvim-ts-hint-textobject", event = "BufRead" }
   -- tree files
   use {
     "kyazdani42/nvim-tree.lua",
