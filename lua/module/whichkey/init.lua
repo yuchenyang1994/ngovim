@@ -117,8 +117,8 @@ local mappings = {
   },
   g = {
       name = "Git",
-      g = {"<cmd>lua require'neogit'.open({kind = 'split'})<CR>", "Git Status"},
-      s = {"<cmd>lua require'neogit'.open({'commit'})<CR>", "Git Commit"}
+      s = {"<cmd>Neogit kind=split<CR>", "Git Status"},
+      g = {"<cmd>Neogit commit kind=split<CR>", "Git Commit",}
   }
 }
 local wk = require "which-key"

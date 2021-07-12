@@ -91,6 +91,14 @@ return require("packer").startup(function(use)
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
   }
+  use {
+    "windwp/nvim-autopairs",
+    -- event = "InsertEnter",
+    after = { "telescope.nvim" },
+    config = function()
+        require("module.autopairs")
+    end,
+  }
   -- tree files
   use {
     "kyazdani42/nvim-tree.lua",
@@ -116,9 +124,26 @@ return require("packer").startup(function(use)
   use({
     "TimUntersberger/neogit",
     cmd = "Neogit",
+    opt = true,
     config = function()
       require("module.neogit")
     end,
   })
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+        require('gitsigns').setup()
+    end,
+    event = "BufRead",
+  }
+  use {
+    "terrortylor/nvim-comment",
+    config = function()
+        require('nvim_comment').setup({
+            line_mapping = "<leader>;;",
+            operator_mapping = "<leader>;"
+        })
+    end
+  }
 end
 )
