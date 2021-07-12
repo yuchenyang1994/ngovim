@@ -151,5 +151,11 @@ return require("packer").startup(function(use)
          require('hop').setup()
      end
   }
+  use {
+    'lewis6991/spellsitter.nvim',
+    config = function()
+      require('spellsitter').setup()
+    end
+  }
 end
 )
