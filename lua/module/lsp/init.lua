@@ -55,11 +55,38 @@ local function on_attach(client, bufnr)
     require("module.lsp.key").setup(client, bufnr)
 end
 
-require("lspinstall").setup()
-local servers = require'lspinstall'.installed_servers()
-for _, server in pairs(servers) do
-    lspconfig[server].setup {
-        on_attach=on_attach,
-        capabilities=capabilities,
-    }
+local function is_installed_server(lang)
+    local servers = require'lspinstall'.installed_servers()
+    for _, server in pairs(servers) do
+        if lang == server then
+            return true
+        end
+    end
+    return false
 end
+
+local function setup_servers()
+    require("lspinstall").setup()
+    local servers = require'lspinstall'.installed_servers()
+    for lang, conf in pairs(O.lang) do
+        if not is_installed_server(lang) and conf.enable then
+            require("lspinstall").install_server(lang)
+        end
+    end
+    for _, server in pairs(servers) do
+        lspconfig[server].setup {
+            on_attach=on_attach,
+            capabilities=capabilities,
+    }
+    end
+end
+
+setup_servers()
+
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
+
+
+

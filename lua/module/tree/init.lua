@@ -6,9 +6,7 @@ end
 
 M.config = function()
 	local g = vim.g
-  
 	vim.o.termguicolors = true
-  
 	g.nvim_tree_side = "left"
 	g.nvim_tree_width = 30
 	g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
@@ -24,14 +22,12 @@ M.config = function()
 	g.nvim_tree_allow_resize = 1
 	g.nvim_tree_lsp_diagnostics = 1
 	g.nvim_tree_auto_ignore_ft = { "startify", "dashboard" }
-  
 	g.nvim_tree_show_icons = {
 	  git = 1,
 	  folders = 1,
 	  files = 1,
 	  folder_arrows = 1,
 	}
-  
 	vim.g.nvim_tree_icons = {
 	  default = "",
 	  symlink = "",
@@ -53,14 +49,12 @@ M.config = function()
 	  },
 	}
 	local tree_cb = nvim_tree_config.nvim_tree_callback
-  
 	vim.g.nvim_tree_bindings = {
 	  { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
 	  { key = "h", cb = tree_cb "close_node" },
 	  { key = "v", cb = tree_cb "vsplit" },
 	}
   end
-  
   local view_status_ok, view = pcall(require, "nvim-tree.view")
   if not view_status_ok then
 	return

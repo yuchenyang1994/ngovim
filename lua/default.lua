@@ -70,7 +70,7 @@ O = {
         svelte = {
             enable = false
         },
-        javascript = {
+        typescript = {
             enable = true
         },
         vim = {
