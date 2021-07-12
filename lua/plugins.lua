@@ -46,7 +46,6 @@ return require("packer").startup(function(use)
 
   use { "nvim-telescope/telescope-project.nvim" }
   -- UI
-  use { "christianchiarulli/nvcode-color-schemes.vim", opt = true }
   use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
@@ -154,7 +153,10 @@ return require("packer").startup(function(use)
   use {
     'lewis6991/spellsitter.nvim',
     config = function()
-      require('spellsitter').setup()
+      require('spellsitter').setup({
+            hl = 'SpellBad',
+            captures = {},
+      })
     end
   }
 end
