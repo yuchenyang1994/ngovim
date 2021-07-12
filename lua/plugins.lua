@@ -27,8 +27,15 @@ return require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- lsp
-  use { "neovim/nvim-lspconfig" }
-  use { "kabouzeid/nvim-lspinstall", event = "VimEnter" }
+  use { "neovim/nvim-lspconfig",
+        requires = {
+            {"kabouzeid/nvim-lspinstall"},
+            {"jose-elias-alvarez/null-ls.nvim"},
+        },
+        config = function()
+            require("module.lsp")
+        end,
+    }
   -- Search
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
@@ -41,7 +48,7 @@ return require("packer").startup(function(use)
   use { "nvim-telescope/telescope-project.nvim" }
   -- UI
   use { "christianchiarulli/nvcode-color-schemes.vim", opt = true }
-  use { 
+  use {
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
       config = [[require('module.treesitter')]],
@@ -98,5 +105,20 @@ return require("packer").startup(function(use)
       require "module.whichkey"
     end,
   }
+  -- terminal
+  use({
+    "akinsho/nvim-toggleterm.lua",
+    config = function()
+      require("module.terminal")
+    end,
+  })
+  -- git
+  use({
+    "TimUntersberger/neogit",
+    cmd = "Neogit",
+    config = function()
+      require("module.neogit")
+    end,
+  })
 end
 )

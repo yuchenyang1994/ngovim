@@ -1,4 +1,5 @@
 O = {
+    autoformat = true,
     lang = {
         bash = {
             enable = true

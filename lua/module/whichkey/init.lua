@@ -65,6 +65,7 @@ local mappings = {
 	},
 	s = {
 	    name = "Search",
+      c = {'<cmd>let @/=""<CR>', "No High light"}, 
 	    b = {"<cmd>Telescope current_buffer_fuzzy_find<CR>", "Search Current"},
 	    p = {"<cmd>Telescope live_grep<CR>", "Search Project"},
 	    r = {"<cmd>Telescope search_history<CR>", "Search History"},
@@ -95,10 +96,6 @@ local mappings = {
 		p = {"<cmd>bprevious<cr>", "Previous Buffer"},
 		d = { "<cmd>:bd<CR>", "Delete Buffer" },
 	},
-	c = {
-		name = "Code",
-		h = {'<cmd>let @/=""<CR>', "No High light"},
-	},
 	["<tab>"] = {
 		name = "Workspace",
 		["<tab>"] = { "<cmd>tabnew<CR>", "New Tab" },
@@ -114,6 +111,15 @@ local mappings = {
 		q = { "<cmd>:qa<cr>", "Quit" },
 		Q = { "<cmd>:qa!<cr>", "Quit without saving" },
 	},
+  o = {
+      name = "open",
+      t = {"<cmd>ToggleTerm<CR>", "Open Terminal"}
+  },
+  g = {
+      name = "Git",
+      g = {"<cmd>lua require'neogit'.open({kind = 'split'})<CR>", "Git Status"},
+      s = {"<cmd>lua require'neogit'.open({'commit'})<CR>", "Git Commit"}
+  }
 }
 local wk = require "which-key"
 wk.register(mappings, opts)
