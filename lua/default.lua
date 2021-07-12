@@ -81,6 +81,6 @@ O = {
         },
         yaml = {
             enable = true
-        }
+        },
     },
 }

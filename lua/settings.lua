@@ -51,3 +51,6 @@ vim.g.loaded_matchparen = 1
 
 vim.cmd[[colorscheme tokyonight]]
 
+-- lang
+O.lang.rust.enable = true
+
