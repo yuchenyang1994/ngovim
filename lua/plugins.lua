@@ -96,7 +96,7 @@ return require("packer").startup(function(use)
     -- event = "InsertEnter",
     after = { "telescope.nvim" },
     config = function()
-        require("module.autopairs")
+        require("nvim-autopairs").setup()
     end,
   }
   -- tree files
