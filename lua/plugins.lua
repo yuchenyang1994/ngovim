@@ -30,7 +30,6 @@ return require("packer").startup(function(use)
   use { "neovim/nvim-lspconfig",
         requires = {
             {"kabouzeid/nvim-lspinstall"},
-            {"jose-elias-alvarez/null-ls.nvim"},
         },
         config = function()
             require("module.lsp")
@@ -144,6 +143,13 @@ return require("packer").startup(function(use)
             operator_mapping = "<leader>;"
         })
     end
+  }
+  use {
+    'phaazon/hop.nvim',
+     as = 'hop',
+     config = function()
+         require('hop').setup()
+     end
   }
 end
 )

@@ -17,6 +17,7 @@ function M.setup(client, bufnr)
                 l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "List Folders" },
             },
             x = {
+                name = "Error",
                 s = { "<cmd>Telescope lsp_document_diagnostics<cr>", "Search Document Diagnostics" },
                 w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics" },
             },

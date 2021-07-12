@@ -1,6 +1,5 @@
 local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-  return
+if not status_ok then return
 end
 
 which_key.setup {
@@ -119,6 +118,13 @@ local mappings = {
       name = "Git",
       s = {"<cmd>Neogit kind=split<CR>", "Git Status"},
       g = {"<cmd>Neogit commit kind=split<CR>", "Git Commit",}
+  },
+  j = {
+      name = "Jump",
+      w = {"<cmd>HopWord<CR>", "Jump World"},
+      l = {"<cmd>HopLine<CR>", "Jump Line"},
+      c = {"<cmd>HopChar1<CR>", "Jump Char1"},
+      C = {"<cmd>HopChar2<CR>", "Jump Char2"},
   }
 }
 local wk = require "which-key"
