@@ -1,5 +1,4 @@
 local lspconfig = require("lspconfig")
-
 if vim.lsp.setup then
   vim.lsp.setup({
     floating_preview = { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" } },
@@ -67,17 +66,16 @@ end
 
 local function setup_servers()
     require("lspinstall").setup()
-    local servers = require'lspinstall'.installed_servers()
     for lang, conf in pairs(O.lang) do
-        if not is_installed_server(lang) and conf.enable then
-            require("lspinstall").install_server(lang)
+        if conf.enable then
+            if not is_installed_server(lang) then
+                require("lspinstall").install_server(lang)
+            end
         end
     end
+    local servers = require'lspinstall'.installed_servers()
     for _, server in pairs(servers) do
-        lspconfig[server].setup {
-            on_attach=on_attach,
-            capabilities=capabilities,
-    }
+        require("module.lang."..server).setup()
     end
 end
 

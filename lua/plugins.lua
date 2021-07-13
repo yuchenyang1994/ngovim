@@ -154,10 +154,22 @@ return require("packer").startup(function(use)
     'lewis6991/spellsitter.nvim',
     config = function()
       require('spellsitter').setup({
-            hl = 'SpellBad',
-            captures = {},
+          hl="error",
       })
     end
+  }
+  -- language utils
+  use {
+      'simrat39/rust-tools.nvim',
+      disable = not O.lang.rust.enable,
+  }
+  use {
+      'crispgm/nvim-go',
+      disable = not O.lang.go.enable,
+  }
+  use {
+      "folke/lua-dev.nvim",
+      disable = not O.lang.lua.enable
   }
 end
 )
