@@ -6,18 +6,6 @@ M.setup = function()
     on_attach = M.on_attach,
     filetypes = { "sh", "zsh" },
   }
-  lspconfig.efm.setup {
-    -- init_options = {initializationOptions},
-    init_options = { documentFormatting = true, codeAction = false },
-    root_dir = require("lspconfig").util.root_pattern(".git/"),
-    filetypes = { "zsh" },
-    settings = {
-      rootMarkers = { ".git/" },
-      languages = {
-        sh = {},
-      },
-    },
-  }
 end
 
 M.on_attach = function(client, bufnr)

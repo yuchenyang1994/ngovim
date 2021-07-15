@@ -31,6 +31,7 @@ function M.setup(client, bufnr)
                 t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
             },
             h = { "<cmd>vim.lsp.buf.hover()<CR>", "Hover"},
+            f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format Document" },
         },
   }
   local keymap_visual = {
@@ -41,11 +42,7 @@ function M.setup(client, bufnr)
   }
   vim.cmd "nnoremap <silent> <C-p> :lua vim.lsp.diagnostic.goto_prev()<CR>"
   vim.cmd "nnoremap <silent> <C-n> :lua vim.lsp.diagnostic.goto_next()<CR>"
-  if client.resolved_capabilities.document_formatting then
-    keymap.c.f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format Document" }
-  elseif client.resolved_capabilities.document_range_formatting then
-    keymap_visual.c.f = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Format Range" }
-  end
+  keymap_visual.c.f = { "<cmd>lua vim.lsp.buf.range_formatting()<CR>", "Format Range" }
   wk.register(keymap, { buffer = bufnr, prefix = "<leader>", mode="n" })
   wk.register(keymap_visual, { buffer = bufnr, prefix = "<leader>", mode = "v" })
 end
