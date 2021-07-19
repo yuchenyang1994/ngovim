@@ -17,7 +17,7 @@ M.on_attach = function(client, bufnr)
                 c = {"<cmd>GoClearTags<CR>", "Clear Tag"}
             },
             t = {
-                Name = "Test",
+                name = "Test",
                 t = {"<cmd>GoTestFile<CR>", "Test File"},
                 f = {"<cmd>GoTestFunc<CR>", "Test Func"},
                 a = {"<cmd>GoTestAll", "Test All"}
