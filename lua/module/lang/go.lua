@@ -35,7 +35,7 @@ M.setup = function()
         -- linters: golint, errcheck, staticcheck, golangci-lint
         linter = 'golint',
         -- lint_prompt_style: qf (quickfix), vt (virtual text)
-        lint_prompt_style = 'qf',
+        lint_prompt_style = 'vt',
         -- formatter: goimports, gofmt, gofumpt
         formatter = 'goimports',
         -- test flags: -count=1 will disable cache
@@ -46,7 +46,7 @@ M.setup = function()
         test_popup = true,
         -- struct tags
         tags_name = 'json',
-        tags_options = {'json=omitempty'},
+        tags_options = {},
         tags_transform = 'snakecase',
         tags_flags = {'-skip-unexported'},
         -- quick type
