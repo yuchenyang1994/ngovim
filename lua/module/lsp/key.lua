@@ -30,7 +30,7 @@ function M.setup(client, bufnr)
                 i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Goto Implementation" },
                 t = { "<cmd>lua vim.lsp.buf.type_definition()<CR>", "Goto Type Definition" },
             },
-            h = { "<cmd>vim.lsp.buf.hover()<CR>", "Hover"},
+            h = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover"},
             f = { "<cmd>lua vim.lsp.buf.formatting()<CR>", "Format Document" },
         },
   }
