@@ -164,7 +164,7 @@ return require("packer").startup(function(use)
       disable = not O.lang.rust.enable,
   }
   use {
-      'crispgm/nvim-go',
+      'ray-x/go.nvim',
       disable = not O.lang.go.enable,
   }
   use {
