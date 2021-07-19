@@ -8,7 +8,7 @@ M.on_attach = function(client, bufnr)
     vim.cmd([[
         augroup LspFormat
           autocmd! * <buffer>
-          autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil,500)
+          autocmd BufWritePre <buffer> lua require('go.format').gofmt()
     ]])
     require("module.lsp.key").setup(client, bufnr)
     local keymap = {
@@ -24,6 +24,7 @@ M.on_attach = function(client, bufnr)
                 f = {"<cmd>GoTestFunc<CR>", "Test Func"},
                 a = {"<cmd>GoAddTest<CR>", "Add Test"},
             },
+            r = {"<cmd>GoRename<CR>", "GoRename"},
             i = {"<cmd>GoImport<CR>", "Go Import"},
             c = {"<cmd>GoCmt<CR>", "Go Comment"},
             f = {"<cmd>Gfstruct<CR>", "Fill Struct"},
