@@ -64,11 +64,12 @@ local mappings = {
 	},
 	s = {
 	    name = "Search",
-      c = {'<cmd>let @/=""<CR>', "No High light"}, 
+        c = {'<cmd>let @/=""<CR>', "No High light"},
 	    b = {"<cmd>Telescope current_buffer_fuzzy_find<CR>", "Search Current"},
 	    p = {"<cmd>Telescope live_grep<CR>", "Search Project"},
 	    r = {"<cmd>Telescope search_history<CR>", "Search History"},
 	    m = {"<cmd>Telescope marks<CR>", "Search Marks"},
+        M = {"<cmd>delmarks A-Z0-9<CR>", "Clear All Marks"}
 	},
 	p = {
 	    name = "Project",
