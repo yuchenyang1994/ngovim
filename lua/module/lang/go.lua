@@ -9,6 +9,7 @@ M.on_attach = function(client, bufnr)
         augroup LspFormat
           autocmd! * <buffer>
           autocmd BufWritePre <buffer> lua require('go.format').gofmt()
+          autocmd BufWritePre <buffer> lua require('go.format').goimport()
     ]])
     require("module.lsp.key").setup(client, bufnr)
     local keymap = {
@@ -27,7 +28,7 @@ M.on_attach = function(client, bufnr)
             r = {"<cmd>GoRename<CR>", "GoRename"},
             i = {"<cmd>GoImport<CR>", "Go Import"},
             c = {"<cmd>GoCmt<CR>", "Go Comment"},
-            f = {"<cmd>Gfstruct<CR>", "Fill Struct"},
+            f = {"<cmd>GoFillStruct<CR>", "Fill Struct"},
 
         }
     }
