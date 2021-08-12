@@ -127,6 +127,7 @@ return require("packer").startup(function(use)
       require("module.neogit")
     end,
   })
+
   use {
     "lewis6991/gitsigns.nvim",
     config = function()
@@ -134,6 +135,7 @@ return require("packer").startup(function(use)
     end,
     event = "BufRead",
   }
+
   use {
     "terrortylor/nvim-comment",
     config = function()
@@ -143,6 +145,7 @@ return require("packer").startup(function(use)
         })
     end
   }
+
   use {
     'phaazon/hop.nvim',
      as = 'hop',
