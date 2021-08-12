@@ -117,8 +117,10 @@ local mappings = {
   },
   g = {
       name = "Git",
+      b = {"<cmd>Gitsigns toggle_current_line_blame<CR>", "Blame"},
+      h = {"<cmd>lua require'gitsigns'.stage_hunk()<CR>", "Stage Hunk"},
       s = {"<cmd>Neogit kind=split<CR>", "Git Status"},
-      g = {"<cmd>Neogit commit kind=split<CR>", "Git Commit",}
+      g = {"<cmd>Neogit commit kind=split<CR>", "Git Popup",}
   },
   j = {
       name = "Jump",
