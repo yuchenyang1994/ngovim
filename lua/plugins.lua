@@ -60,6 +60,7 @@ return require("packer").startup(function(use)
    config = function ()
     require("module.dashboard").config()
   end}
+  use {'kevinhwang91/nvim-hlslens'}
   -- UI/icon
   use({
     "kyazdani42/nvim-web-devicons",

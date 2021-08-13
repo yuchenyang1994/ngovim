@@ -1,6 +1,6 @@
 <div align="center">
 
-  # NGO Vim
-  A Modern Vim via NeoVim and Lua
+    # NGO Vim
+    A Modern Vim via NeoVim and Lua
 
 </div>

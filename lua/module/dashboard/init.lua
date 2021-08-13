@@ -20,7 +20,7 @@ M.config = function ()
       description = { "  Recently Used Files" },
       command = "Telescope oldfiles",
     },
-    c = { 
+   c = {
       description = { "  Find Project       " },
       command = "lua require'telescope'.extensions.project.project{}",
     },
