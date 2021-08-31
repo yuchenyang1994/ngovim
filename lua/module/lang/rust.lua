@@ -67,10 +67,10 @@ M.setup = function()
                 auto_focus = false
             }
         },
+        server = {
+            on_attach = M.on_attach
+        }
     }
-    require('lspconfig')['rust'].setup({
-        on_attach = M.on_attach
-    })
     require("rust-tools").setup(opts)
 end
 
