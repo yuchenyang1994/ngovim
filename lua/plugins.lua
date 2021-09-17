@@ -64,7 +64,6 @@ return require("packer").startup(function(use)
   -- UI/icon
   use({
     "kyazdani42/nvim-web-devicons",
-    module = "nvim-web-devicons",
     config = function()
       require("nvim-web-devicons").setup({ default = true })
     end,
@@ -101,6 +100,7 @@ return require("packer").startup(function(use)
   -- tree files
   use {
     "kyazdani42/nvim-tree.lua",
+    require = 'kyazdani42/nvim-web-devicons',
     config = function()
       require("module.tree").config()
     end,
