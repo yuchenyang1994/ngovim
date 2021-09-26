@@ -54,6 +54,7 @@ M.config = function()
 	  { key = "h", cb = tree_cb "close_node" },
 	  { key = "v", cb = tree_cb "vsplit" },
 	}
+    require'nvim-tree'.setup {}
   end
   local view_status_ok, view = pcall(require, "nvim-tree.view")
   if not view_status_ok then
