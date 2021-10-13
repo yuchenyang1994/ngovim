@@ -102,7 +102,7 @@ return require("packer").startup(function(use)
     "kyazdani42/nvim-tree.lua",
     require = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require("module.tree").config()
+      require'nvim-tree'.setup {}
     end,
   }
   -- whichkey
