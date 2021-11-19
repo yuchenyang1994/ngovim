@@ -1,15 +1,10 @@
 local go = require('go')
 local wk = require('which-key')
-local lspconfig = require('lspconfig')
 
 local M = {}
 
 M.on_attach = function(client, bufnr)
-    vim.cmd([[
-        augroup LspFormat
-          autocmd! * <buffer>
-          autocmd BufWritePre <buffer> GoFormat
-    ]])
+    require("module.lsp.format").setup(client, bufnr)
     require("module.lsp.key").setup(client, bufnr)
     local keymap = {
         m = {
