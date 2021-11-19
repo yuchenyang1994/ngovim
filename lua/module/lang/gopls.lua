@@ -8,8 +8,7 @@ M.on_attach = function(client, bufnr)
     vim.cmd([[
         augroup LspFormat
           autocmd! * <buffer>
-          autocmd BufWritePre <buffer> lua require('go.format').gofmt()
-          autocmd BufWritePre <buffer> lua require('go.format').goimport()
+          autocmd BufWritePre <buffer> GoFormat
     ]])
     require("module.lsp.key").setup(client, bufnr)
     local keymap = {
@@ -33,7 +32,10 @@ M.on_attach = function(client, bufnr)
         }
     }
     wk.register(keymap, {buffer = bufnr, prefix="<leader>", mode="n"})
-    go.setup{}
+    go.setup{
+        formatter = 'goimports',
+
+    }
 end
 
 return M
