@@ -1,4 +1,3 @@
-local go = require('go')
 local wk = require('which-key')
 
 local M = {}
@@ -6,6 +5,7 @@ local M = {}
 M.on_attach = function(client, bufnr)
     require("module.lsp.format").setup(client, bufnr)
     require("module.lsp.key").setup(client, bufnr)
+    vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
     local keymap = {
         m = {
             name = "Mode",
@@ -27,10 +27,7 @@ M.on_attach = function(client, bufnr)
         }
     }
     wk.register(keymap, {buffer = bufnr, prefix="<leader>", mode="n"})
-    go.setup{
-        formatter = 'goimports',
-
-    }
+    require('go').setup()
 end
 
 return M

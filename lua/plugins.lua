@@ -183,15 +183,10 @@ return require("packer").startup(function(use)
   -- language utils
   use {
       'simrat39/rust-tools.nvim',
-      disable = not O.lang.rust.enable,
+
   }
   use {
       'ray-x/go.nvim',
-      disable = not O.lang.go.enable,
-  }
-  use {
-      "folke/lua-dev.nvim",
-      disable = not O.lang.lua.enable
   }
 end
 )
