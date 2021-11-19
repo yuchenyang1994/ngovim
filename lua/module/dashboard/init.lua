@@ -22,7 +22,7 @@ M.config = function ()
     },
    c = {
       description = { "  Find Project       " },
-      command = "lua require'telescope'.extensions.project.project{}",
+      command = "Telescope projects",
     },
     d = {
       description = { "  Find Mark          " },

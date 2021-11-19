@@ -29,12 +29,15 @@ return require("packer").startup(function(use)
   -- lsp
   use { "neovim/nvim-lspconfig",
         requires = {
-            {"kabouzeid/nvim-lspinstall"},
+            {"williamboman/nvim-lsp-installer"},
         },
-        config = function()
+       config = function()
             require("module.lsp")
         end,
     }
+
+
+
   -- Search
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
@@ -43,8 +46,17 @@ return require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     config = [[require('module.telescope')]],
   }
+  use {
+    "ahmedkhalf/project.nvim",
+    requires={
+        {"nvim-telescope/telescope.nvim"}
+    },
+    config = function()
+        require("project_nvim").setup {}
+        require('telescope').load_extension('projects')
+    end
+  }
 
-  use { "nvim-telescope/telescope-project.nvim" }
   -- UI
   use {
       "nvim-treesitter/nvim-treesitter",
@@ -102,7 +114,13 @@ return require("packer").startup(function(use)
     "kyazdani42/nvim-tree.lua",
     require = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require'nvim-tree'.setup {}
+      require'nvim-tree'.setup {
+        update_cwd = true,
+        update_focused_file = {
+            enable = true,
+            update_cwd = true
+        },
+      }
     end,
   }
   -- whichkey

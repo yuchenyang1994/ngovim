@@ -33,13 +33,7 @@ M.on_attach = function(client, bufnr)
         }
     }
     wk.register(keymap, {buffer = bufnr, prefix="<leader>", mode="n"})
-end
-
-M.setup = function()
     go.setup{}
-    lspconfig['go'].setup{
-        on_attach = M.on_attach,
-    }
 end
 
 return M

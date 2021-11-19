@@ -73,7 +73,7 @@ local mappings = {
 	},
 	p = {
 	    name = "Project",
-	    p = {"<cmd>lua require'telescope'.extensions.project.project{}<CR>", "Find Projects"},
+	    p = {"<cmd>Telescope projects<CR>", "Find Projects"},
 	},
 	w = {
 		name = "Window",

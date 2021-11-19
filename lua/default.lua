@@ -1,8 +1,8 @@
 O = {
     autoformat = true,
     lang = {
-        bash = {
-            enable = true
+        bashls = {
+            enable = true,
         },
         clojure = {
             enable = false
