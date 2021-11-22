@@ -2,7 +2,7 @@ local M = {}
 
 M.config = function ()
   local opt = {
-    enabled = O.auto_complete,
+    enabled = true,
     autocomplete = true,
     debug = false,
     min_length = 1,

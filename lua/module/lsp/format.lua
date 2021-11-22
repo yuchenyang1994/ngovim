@@ -1,9 +1,7 @@
 local M = {}
 
 function M.format()
-  if O.autoformat then
     vim.lsp.buf.formatting_sync()
-  end
 end
 
 function M.setup(client, buf)
