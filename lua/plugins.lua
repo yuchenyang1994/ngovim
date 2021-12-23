@@ -36,8 +36,13 @@ return require("packer").startup(function(use)
         end,
     }
 
-
-
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+        require("null-ls").setup()
+    end,
+    requires = { "nvim-lua/plenary.nvim" },
+  })
   -- Search
   use { "nvim-lua/popup.nvim" }
   use { "nvim-lua/plenary.nvim" }
